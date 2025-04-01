@@ -1,0 +1,278 @@
+.organism--timeline-wrapper {
+  .disclosure-wrapper {
+    margin-top: auto;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    flex-direction: column;
+    position: relative;
+  }
+  .border {
+    border: 2px solid $color--brand--contrasting--night-blue;
+  }
+  .molecule--copy {
+    display: flex;
+    flex-direction: column;
+    padding: 0;    
+    .links {
+      margin-top: auto;
+    }
+  }
+  .event-3-4-width .molecule--copy {
+    width: 264px;
+  }
+  .event-5-width .molecule--copy {
+    width: 264px;
+  }
+  .event-6-width .molecule--copy {
+    width: 178px;
+  }
+  .timeline-item {
+    width: $spacing-25;
+    height: $spacing-25;
+    background-color: $color--white;
+    position: relative;
+    img {
+      object-fit: cover;
+    }
+    img.icon {
+      width: 48px;
+      height: 48px;
+    }
+    img.media {
+      width: $spacing-25;
+      height: $spacing-25;
+    }  
+    div.icon, div.media, div.year {
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }    
+  }
+  .timeline-pin-wrapper {
+    position: relative;
+    width: $spacing-25;    
+    .organism--timeline--copy {
+      margin-top: auto;
+      word-wrap: break-word;
+      .molecule--timeline-item {
+        width: 178px;
+      }
+    } 
+    .organism--timeline--copy.pin-align-down {
+      margin-top: 30px;
+    }
+    .pin-collection.pin-align-down {
+      margin-top: -15px;
+    }
+    .pin-collection {
+      margin-top: auto;
+      height: 156px;
+    }
+    
+    .timeline-item-line.pin-align-down {
+      height: 65px;
+    }
+    .timeline-item-line {
+      width: 2px;
+      background-color: $color--brand--contrasting--night-blue;
+      height: 50px;
+      margin: auto;
+    } 
+    .pin-item {
+      position: absolute;
+      background-color: $color--white;
+      width: 24px;
+      height: 24px;
+      left: 38px;      
+      border-radius: 50%;
+      border: 4px solid $color--brand--contrasting--night-blue;
+    }
+  }
+}
+.organism--timeline--3-4-events-wrapper {
+  display: flex;
+  justify-content: left;
+  max-width: 1296px;
+  gap: 226px;
+  margin-top: 63px;
+  margin-left: $spacing-4;
+  .gap-4-event {
+    gap: 63px;
+  }
+}
+.organism--3-4-timeline--icon.gap-4-event {
+  gap: 63px;
+}
+.organism--timeline--3-4-events-wrapper.gap-4-event {
+  gap: 63px;
+}
+.organism--timeline--wrapper {
+  height: 6px;
+  background-color: $color--brand--contrasting--night-blue;
+  display: block;  
+}
+.organism--3-4-timeline--icon {
+  display: flex;
+  gap: 226px;
+  margin-left: $spacing-4;
+  .timeline-item-wrapper {
+    width: 264px;
+    flex-grow: 1;
+    height: 156px;
+  }   
+}
+.organism--5-6-timeline--icon {
+  display: flex;
+  //gap: 70px;
+  margin-left: $spacing-4;
+  .timeline-item-wrapper {
+    width: 178px;
+    flex-grow: 1;    
+  }   
+}
+
+.organism--timeline-mobile-content { 
+  display: none;
+  /* The actual timeline (the vertical ruler) */
+  .timeline {
+    position: relative;
+    max-width: 864px;
+    margin: 0 auto;
+    margin-left: 78px;
+  }
+  /* The actual timeline (the vertical ruler) */
+  .timeline::after {
+    content: '';
+    position: absolute;
+    width: 6px;
+    background-color: $color--brand--contrasting--night-blue;
+    top: 0;
+    bottom: 0;
+    margin-left: -3px;
+  }
+
+  /* Container around content */
+  .container {
+    padding: 10px 40px;
+    position: relative;
+    background-color: inherit;
+    width: 864px;
+  }
+
+  /* The circles on the timeline */
+  .container::after {
+    content: '';
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    right: -17px;
+    background-color: $color--white;  
+    border-radius: 50%;
+    border: 4px solid $color--brand--contrasting--night-blue;
+    top: 15px;
+    border-radius: 50%;
+    z-index: 1;
+  }
+  /* Place the container to the right */
+  .right {
+    //left: 50%;
+    top: 37%;
+  }
+  /* Add arrows to the right container (pointing left) */
+  .right::before {
+    content: " ";
+    height: 0;
+    top: 22px;
+    position: absolute;
+    z-index: 1;
+    left: 13px;
+    top: 75px;  
+    width:34px;
+    height:5px;
+    background:$color--brand--contrasting--night-blue;
+  }
+  /* Fix the circle for containers on the right side */
+  .right::after {
+    left: -12px;
+    top: 66px;
+  }
+  /* The actual content */
+  .content {
+    padding: 20px 5px;
+    background-color: $color--white;
+    position: relative;
+    border-radius: 6px;
+    display: flex;
+    gap: 48px;
+    .molecule--timeline-item {
+      width: auto;
+    }
+  }
+  .timeline-item {
+    width: $spacing-25;
+    height: $spacing-25;
+    background-color: $color--white;
+    //border: 2px solid #000;
+  }    
+}
+
+@include breakpoint(large up) {
+  .organism--timeline-main-content { 
+    display: block;
+  }
+  .organism--timeline-mobile-content { 
+    display: none;
+  }
+}
+
+//@media only screen and (min-width: 960px) and (max-width: 1024px) {
+@include breakpoint(large down) {
+  .organism--timeline-main-content { 
+    display: none;
+  }
+  .organism--timeline-mobile-content { 
+    display: block;
+    .timeline {
+      max-width: 864px;     
+    }
+    .container {
+      max-width: 864px;
+    }
+  } 
+}
+//@media only screen and (min-width: 600px) and (max-width: 959px) {
+@include breakpoint(medium down) {
+  .organism--timeline-main-content { 
+    display: none;
+  }
+  .organism--timeline-mobile-content { 
+    display: block;
+    .timeline {
+      max-width: 540px;     
+    }
+    .container {
+      max-width: 540px;
+    }
+  } 
+}
+//@media only screen and (min-width: 360px) and (max-width: 600px) {
+@include breakpoint(small down) {
+  .organism--timeline-main-content { 
+    display: none;
+  }
+  .organism--timeline-mobile-content { 
+    display: block;
+    .timeline {
+      max-width: 324px;   
+      margin-left: 10px;  
+    }
+    .container {
+      max-width: 324px;
+    }
+    .content {
+      flex-direction: column;
+    }
+  } 
+}

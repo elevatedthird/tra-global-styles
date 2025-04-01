@@ -1,0 +1,72 @@
+span.buttons-container {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: -1rem;
+}
+/*
+  Below is a generation of classes to use with elements that need to look
+  like a button. Use these only when neccessary.
+
+  The "buttons--" plural class will target all nested buttons.
+
+  The "button--" singular is used for overriding.
+
+ */
+
+.button {
+  @include btn(tertiary);
+}
+
+@each $key, $value in $button-profiles {
+  // These are a combination of type and color
+  .buttons--#{$key} .button, .button.button--#{$key} {
+    @include btn($key);
+  }
+}
+
+@each $key, $value in $button-color-profiles {
+  // control the color state of the button
+  .buttons--color--#{$key} .button, .button.button--color--#{$key} {
+    @include button-color-profile($key);
+  }
+}
+
+@each $key, $value in $button-type-profiles {
+  // Controls the type, border, border-width and such of a button
+  .buttons--type--#{$key} .button, .button.button--type--#{$key} {
+    @include button-type-profile($key);
+  }
+}
+
+.button.no-icon:after {
+  content: none;
+}
+
+.buttons-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+
+.button.button.no-icon {
+  div.material-symbols-outlined {
+    margin-left: 6px;
+  }
+  &:has(div.material-symbols-outlined) {
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+    &:hover, &:focus {
+      text-decoration: none;
+      span {
+        text-decoration: underline;
+        text-underline-offset: 6px;
+        text-decoration-thickness: 2px;
+      }
+      div.material-symbols-outlined {
+        text-decoration: none;
+      }
+    }
+  }
+}

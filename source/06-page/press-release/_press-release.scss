@@ -1,0 +1,39 @@
+.page--press-release {
+  h1, .meta, .body, .boilerplate, .download, .disclosures, .media {
+    margin-bottom: $spacing-6;
+  }
+
+  h1 {
+    font-size: rem-calc(36);
+
+    @include breakpoint(xlarge) {
+      font-size: rem-calc(48);
+    }
+  }
+
+  // Swap the order of the sidebar and main content on mobile,
+  // so that the image is above the content.
+  .main-content {
+    order: 1;
+
+    @include breakpoint(large) {
+      order: unset;
+    }
+  }
+
+  .download a {
+    font-size: rem-calc(18);
+
+    @include breakpoint(medium) {
+      font-size: inherit;
+    }
+  }
+
+  .boilerplate p {
+    font-size: rem-calc(18);
+
+    @include breakpoint(medium) {
+      font-size: $body-lg-font-size;
+    }
+  }
+}

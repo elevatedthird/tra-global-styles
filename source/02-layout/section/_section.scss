@@ -1,0 +1,59 @@
+////
+/// Layouts - Global Styles
+////
+
+// Spacing between layout sections
+
+.layout-section-inner-wrapper {
+  .header {
+    margin-bottom: 1rem;
+  }
+  .layout-grid + .footer {
+    margin-top: 1rem;
+  }
+  div.layout-column:empty {
+    padding-bottom: 0;
+    padding-top: 0;
+  }
+}
+
+
+.layout-section {
+  &:not(.banner) {
+    padding-top: $spacing-20;
+    padding-bottom: $spacing-20;
+  }
+
+  &.banner + .layout-section {
+    padding-top: $spacing-12;
+  }
+
+  &.banner .breadcrumb {
+    margin-top: 40px;
+    padding-bottom: 0;
+    margin-bottom: -19px;
+    .molecule--back {
+      position: relative;
+      z-index: 1;
+    }
+  }
+}
+
+.layout-section {
+  @each $name, $color in $theme-profiles {
+    &.theme--#{"" + $name} + .theme--#{"" + $name} {
+      padding-top: 0 !important;
+    }
+  }
+
+  &.expand-section {
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+  }
+}
+
+.banner-block--simple_header + .layout-section.layout-section, .banner-block--agn_core_simple_header + .layout-section.layout-section {
+  padding-top: 1px;
+}
+

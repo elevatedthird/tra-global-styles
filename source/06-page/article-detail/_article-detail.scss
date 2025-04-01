@@ -1,0 +1,22 @@
+.page--article-detail {
+  h1 {
+    margin-bottom: 1rem;
+  }
+
+  .page--article-detail--content {
+    margin-top: 1rem;
+    margin-bottom: 0;
+  }
+
+  .page--article-detail--topics, #related_content {
+    margin-top: 3rem;
+  }
+
+  .page--article-detail--date-read {
+    margin-bottom: 8px;
+  }
+
+  .sticky {
+    z-index: 4;
+  }
+}

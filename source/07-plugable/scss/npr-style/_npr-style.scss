@@ -1,0 +1,8 @@
+.npr-style {
+  @include top-bottom(padding, #{rem-calc(48)});
+
+  @include breakpoint(xlarge) {
+    padding-top: rem-calc(80);
+    padding-bottom: rem-calc(96);
+  }
+}

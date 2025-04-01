@@ -1,0 +1,91 @@
+.organism--interstitial-message {
+  &.modal.interstitial-message {
+    .modal__overlay {
+      background: rgba(34, 34, 34, 0.8);
+    }
+
+    .modal__content {
+      margin-bottom: 0;
+
+      .field--name-field-title, .field--name-field-body, .checkboxes, .passwords {
+        margin-bottom: $spacing-4;
+      }
+
+      .field--name-field-body {
+        max-height: 30vh;
+        overflow-y: auto;
+      }
+
+      .checkbox {
+        column-gap: $spacing-2;
+        font-size: $body-md-font-size;
+
+        label {
+          cursor: pointer;
+          font-weight: $font-weight-medium;
+        }
+
+        input {
+          cursor: pointer;
+          height: rem-calc(17);
+          width: rem-calc(17);
+          margin-top: rem-calc(3.5);
+          flex: 0 0 auto;
+
+          &:focus-visible {
+            outline: 2px solid $color--brand--focus-yellow;
+            outline-offset: 0;
+          }
+        }
+      }
+
+      .password {
+        input {
+          @include form-atom;
+
+          &:focus-visible {
+            outline: 2px solid $color--brand--focus-yellow;
+            outline-offset: 0;
+          }
+        }
+      }
+
+      &, p {
+        @include breakpoint(mobile_menu) {
+          font-size: $body-md-font-size;
+        }
+      }
+
+      .buttons {
+        column-gap: $spacing-6;
+        row-gap: $spacing-2;
+        flex-wrap: wrap;
+
+        .button {
+          white-space: nowrap;
+
+          &:after {
+            display: none;
+          }
+
+          &.submit {
+            &:disabled {
+              background: $color--disabled-gray;
+              border-color: $color--disabled-gray;
+              color: $white;
+              cursor: not-allowed;
+
+              &:hover {
+                text-decoration: none;
+              }
+
+              &:active {
+                opacity: 1;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

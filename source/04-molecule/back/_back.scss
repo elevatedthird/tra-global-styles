@@ -1,0 +1,37 @@
+.molecule--back {
+  // style things
+  margin-bottom: 2rem;
+  a.button.button {
+    text-decoration-skip-ink: auto;
+    display: inline-flex;
+    align-items: center;
+    flex-direction: row-reverse;
+    padding: 0;
+    font-weight: 500;
+    position: relative;
+    &:after {
+      margin-left: 0;
+      margin-right: 5px;
+      text-decoration: none;
+      transform: scaleX(-1) translateX(0px);
+    }
+
+    &:hover:before, &:focus:before {
+      content: attr(title);
+      right: 0;
+      position: absolute;
+      height: 100%;
+      text-decoration: underline;
+      text-decoration-thickness: 2px;
+      text-underline-offset: 7px;
+    }
+
+    &:hover, &:focus {
+      display: inline-flex;
+      text-decoration: none;
+      &:after {
+        transform: scaleX(-1) translateX(4px);
+      }
+    }
+  }
+}

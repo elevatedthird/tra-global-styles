@@ -1,0 +1,19 @@
+.atom--badge {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: .25rem .5rem;
+  background-color: $color--brand--pure-white;
+  .icon {
+    display: flex;
+    align-items: center;
+    width: 1.5rem;
+    * {
+      display: flex;
+      align-items: center;
+    }
+  }
+  .label {
+    margin-bottom: 0;
+  }
+}

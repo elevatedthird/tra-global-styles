@@ -1,0 +1,51 @@
+.page--decision-tree {
+  .banner, .dt-content, .dt-tree, hr {
+    margin-bottom: $spacing-12;
+    @include breakpoint(large) {
+      margin-bottom: $spacing-18;
+    }
+    @include breakpoint(xlarge) {
+      margin-bottom: $spacing-20;
+    }
+  }
+  .dt-title, .dt-desc, .dt-tree > div {
+    margin-bottom: $spacing-6;
+  }
+
+  .dt-tree {
+    &:has(> :nth-child(5)) {
+      @include breakpoint(large) {
+        column-gap: $spacing-6;
+        column-count: 2;
+      }
+      & > div {
+        break-inside: avoid-column;
+      }
+    }
+    &:not(:has(> :nth-child(4))) {
+      & > div {
+        @include breakpoint(large) {
+          max-width: 50%;
+        }
+      }
+    }
+  }
+
+  hr {
+    border-color: $color--brand--warm-black;
+  }
+  .dt-alt-trees {
+    @include breakpoint(large) {
+      column-gap: $spacing-6;
+      column-count: 2;
+    }
+    & > div {
+      break-inside: avoid-column;
+      margin-bottom: $spacing-6;
+    }
+    .dti-content a {
+      @include btn(secondary);
+    }
+  }
+}
+

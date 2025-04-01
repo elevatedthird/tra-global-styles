@@ -1,0 +1,43 @@
+.layout--footer {
+  > .grid-container {
+    padding-top: $spacing-12;
+    padding-bottom: $spacing-12;
+    @include breakpoint(xlarge) {
+      padding-top: $spacing-16;
+      padding-bottom: $spacing-16;
+    }
+  }
+}
+
+.layout--portal-footer-wrapper {
+  // style things
+  @include breakpoint(medium down) {
+    .left {
+      order: 2;
+      margin-top: 1.5rem;
+    }
+  }
+}
+
+.organism--footer-legal {
+  p, a {
+    font-size: $body-sm-font-size;
+    line-height: $body-sm-line-height;
+  }
+  a {
+    color: $color--brand--pure-white;
+    &:visited {
+      color: $color--brand--pure-white;
+    }
+    &:hover,
+    &:active,
+    &:focus {
+      text-decoration: underline;
+      color: $color--brand--pure-white;
+    }
+  }
+  margin-bottom: $spacing-6;
+  @include breakpoint(xlarge) {
+    margin-bottom: $spacing-8;
+  }
+}

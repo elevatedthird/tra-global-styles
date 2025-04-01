@@ -1,0 +1,226 @@
+.facade-form {
+
+  .form-item {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    @include breakpoint(large) {
+      max-width: 300px;
+    }
+
+
+    /*------------------------------------*\
+      03 - Text Inputs
+    \*------------------------------------*/
+    &.form-type-select,
+    &.form-type-date,
+    &.form-type-number {
+      label:not(.error) {
+        color: $color--brand--warm-black;
+        background: $color--brand--pure-white;
+        padding: 0 $spacing-1;
+        position: absolute;
+        left: $spacing-2;
+        top: 0;
+        width: 80%;
+        transform: translateY($spacing-4);
+        transition: all ease 0.25s;
+      }
+
+
+      &[data-focus="true"] {
+        label:not(.error) {
+          color: $color--brand--warm-black;
+        }
+
+        input,
+        textarea {
+          border-color: $color--brand--warm-black;
+          outline: $color--brand--warm-black;
+        }
+      }
+
+      input, textarea, select {
+        &:focus, &:focus-within {
+          border-color: $color--brand--warm-black;
+          outline: $color--brand--warm-black;
+          outline-color: $color--brand--warm-black;
+        }
+      }
+
+      &.has-error {
+        label:not(.error) {
+          color: $color--form-error;
+        }
+
+        input,
+        textarea,
+        input:focus,
+        textarea:focus {
+          border-color: $color--form-error;
+          outline: $color--form-error;
+        }
+      }
+    }
+
+    /*------------------------------------*\
+      05 - Selects Inputs
+    \*------------------------------------*/
+    // @see https://codepen.io/sandrina-p/pen/YzyOYRr
+    // @see https://css-tricks.com/striking-a-balance-between-native-and-custom-select-elements/
+    &.form-type-select {
+      position: relative;
+      // Both native and custom selects must have the same width/height.
+      select,
+      .selectCustom {
+        position: relative;
+        width: 100%;
+        height: rem-calc(55);
+      }
+
+      select {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        background-image: url("data:image/svg+xml;utf8,<svg fill='%23666' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/><path d='M0 0h24v24H0z' fill='none'/></svg>");
+        background-repeat: no-repeat;
+        background-position-x: 97%;
+        background-position-y: center;
+        background-size: 28px;
+        padding: 0 $spacing-4;
+      }
+
+      // Make sure the custom select does not mess with the layout
+      .selectCustom {
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: none;
+      }
+
+      // This media query detects devices where the primary
+      // input mechanism can hover over elements. (e.g. computers with a mouse)
+      @media (hover: hover) {
+        .selectCustom {
+          display: block;
+        }
+        // Since we are using a mouse, it's safe to show the custom select.
+
+        // In a computer using keyboard? Then let's hide back the custom select
+        // while the native one is focused:
+        //select:focus + .selectCustom {
+        //  display: none;
+        //}
+      }
+
+      select,
+      .selectCustom-trigger {
+        border: $color--brand--warm-black solid 2px;
+        padding: 0 37px 0 15px;;
+        background-color: $color--brand--pure-white;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+
+        &.error {
+          border-color: $color--brand--warm-black;
+        }
+      }
+
+      .selectCustom-trigger {
+        display: flex;
+        align-items: flex-start;
+        position: relative;
+        color: $color--brand--warm-black;
+        font-weight: 400;
+        width: 100%;
+        font-size: 16px;
+        justify-content: space-between;
+        padding: 14px 16px;
+        border: 2px solid $color--brand--warm-black;
+        cursor: pointer;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+
+        &:after {
+          color: $color--brand--warm-black;
+          font-weight: 600;
+          font-family: $icon-font-family;
+          font-size: 24px;
+          line-height: 18px;
+          display: inline-block;
+          content: "\e316";
+          transform: rotate(180deg);
+          transition: transform .25s;
+        }
+      }
+
+      label {
+        pointer-events: none;
+
+        &:before,
+        &:after {
+          //content: '-';
+          //margin: 0 2px;
+        }
+      }
+
+      &[data-empty="false"] {
+        label {
+          &:before,
+          &:after {
+            display: none;
+          }
+        }
+      }
+
+      [aria-hidden="false"] {
+        .selectCustom-trigger {
+          border-color: $color--brand--warm-black;
+
+          &:after {
+            transform: rotate(180deg);
+            color: $color--brand--warm-black;
+          }
+        }
+      }
+
+      .selectCustom.isActive {
+        .selectCustom-trigger:after {
+          transform: none;
+        }
+        .selectCustom-options {
+          display: block;
+        }
+      }
+
+      .selectCustom-options {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: $color--brand--pure-white;
+        z-index: 10;
+        padding: $spacing-2 0;
+        display: none;
+        max-height: 300px;
+        overflow-y: scroll;
+        border: 1px solid $color--brand--warm-black;
+
+        .selectCustom-option {
+          position: relative;
+          z-index: 10;
+          padding: $spacing-2 $spacing-4;
+          cursor: pointer;
+
+          &.isHover {
+            text-decoration: underline;
+            text-underline-offset: 6px;
+            text-decoration-thickness: 2px;
+          }
+        }
+      }
+    }
+  }
+}
+

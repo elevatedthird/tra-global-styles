@@ -1,0 +1,108 @@
+@import '~nice-select2/src/scss/nice-select2.scss';
+
+.nice-select.nice-select {
+  @include form-atom;
+  width: 100%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: auto;
+  float: none;
+  padding-top: 11px;
+  padding-bottom: 11px;
+
+  &:hover {
+    border-color: $color--black;
+  }
+
+  //padding: 12px 52px 12px 14px;
+
+  .current {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding-right: 15px;
+    width: calc(100% - 10px);
+    line-height: 1.4285;
+    align-items: center;
+    color: $color--black;
+    margin-top: 2px;
+    display: inline-block;
+
+    &:has(+ .nice-select-dropdown .list li[data-value=""].selected) {
+      color: $color--dark-grey-3;
+    }
+  }
+
+  &::after {
+    font-family: 'Material Symbols Outlined';
+    content: 'keyboard_arrow_down';
+    border: none;
+    transform: translateY(-50%);
+    font-size: 36px;
+    width: auto;
+    height: auto;
+    right: 10px;
+    top: 50%;
+    bottom: 0;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    font-weight: normal;
+    font-style: normal;
+    line-height: 1;
+    letter-spacing: normal;
+    text-transform: none;
+    white-space: nowrap;
+    word-wrap: normal;
+    direction: ltr;
+    -webkit-font-feature-settings: 'liga';
+    -webkit-font-smoothing: antialiased;
+    transform: translateY(-50%);
+    position: absolute;
+    pointer-events: none;
+  }
+
+  .nice-select-dropdown {
+    width: 100%;
+    margin-top: 8px;
+    box-shadow: 0 6px 8px 0px rgba(0, 0, 0, 0.15);
+  }
+
+  .list {
+    border-radius: 2px;
+    padding: 12px 0;
+    width: 100%;
+    margin: 0;
+
+    li {
+      color: $color--brand--warm-black;
+      padding: 12px 16px;
+      line-height: 24px;
+
+      &.selected,
+      &:hover,
+      &.focus {
+        background-color: $color--info--bg;
+      }
+    }
+  }
+}
+
+select:has(+ .nice-select) {
+  display: none;
+}
+
+.nice-select .option {
+  transition: padding-left .2s, padding-right .2s, font-weight .2s;
+}
+
+// on focus-visible yellow outline
+.nice-select.nice-select {
+
+  &:focus-visible,
+  &:focus {
+    outline: 4px solid $color--info--bg;
+    border-color: $color--info;
+  }
+}

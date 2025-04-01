@@ -1,0 +1,290 @@
+/**
+ * Component - Tabs
+ * - 01 - Imports
+ * - 02 - General
+ */
+
+/*------------------------------------*\
+  02 - General
+\*------------------------------------*/
+
+.block--contact-tabs {
+  margin-top: $spacing-12;
+  @include breakpoint(large) {
+    margin-top: $spacing-24;
+  }
+
+  .contact-tabs-items {
+    width: 100%;
+    @include breakpoint(large) {
+      @include left-right(margin, $spacing-8);
+    }
+  }
+  
+  .organism--contact--copy {
+    margin-bottom: $spacing-2;
+    @include breakpoint(large) {
+      margin-bottom: $spacing-20;
+    }
+  }
+}
+
+.tippy-box.tippy-box.tippy-box{
+  max-width: fit-content !important;
+  width: fit-content !important;
+}
+
+.contact-tabs-form {
+  input[type="submit"] {
+    display: none !important;
+  }
+
+  .form-radios .form-item {
+    margin-right: 32px;
+  }
+
+  .form-type-select .selectCustom.selectCustom {
+    .selectCustom-options {
+      width: calc(100% + 1rem) !important;
+    }
+  }
+
+  .form-item.form-type-select select[disabled] {
+    + .selectCustom, + .selectCustom + .selectCustom {
+      display: none;
+    }
+  }
+
+  .form-item.form-type-select select {
+    //pointer-events: none !important;
+  }
+
+
+
+  .form-item.form-type-select[data-focus="true"] select {
+    border-color: $color--brand--contrasting--night-blue;
+    outline: $color--brand--contrasting--night-blue;
+  }
+
+  .form-item.form-type-select[data-focus="true"] {
+    label {
+      color: $color--brand--contrasting--night-blue;
+    }
+  }
+
+  .has-error {
+    label:not(.error) {
+      color: v !important;
+    }
+    input.error, textarea.error {
+      border-color: $color--brand--contrasting--crimson-red !important;
+      outline: $color--brand--contrasting--crimson-red !important;
+    }
+
+    label.error {
+      &:before {
+        color: $color--brand--contrasting--crimson-red !important;
+      }
+    }
+  }
+
+  .form-item.form-type-select select.error, .form-item.form-type-select select.error + .error + div + div, .form-item.form-type-select select.error + .error + div {
+    border-color: $color--brand--contrasting--crimson-red;
+    outline: $color--brand--contrasting--crimson-red;
+    .selectCustom-trigger {
+      border-color: $color--brand--contrasting--crimson-red;
+      outline: $color--brand--contrasting--crimson-red;
+    }
+  }
+
+
+  .form-item:not(.form-disabled).form-item[data-empty="true"], .form-item.form-item:not([data-empty]) {
+    label:first-of-type:not(.error):not(.option) {
+      color: $color--brand--warm-black !important;
+      &:after {
+        display: none;
+      }
+    }
+    label.option {
+      color: $color--brand--warm-black !important;
+    }
+    label.error {
+      display: none;
+    }
+  }
+
+  .webform-element-help:after {
+    background: white;
+    padding: 0 5px 0 4px;
+  }
+
+  .form-item.form-type-textfield[data-empty="false"] label:not(.error) {
+    .webform-element-help:after {
+      color: $color--brand--warm-black !important;
+    }
+  }
+
+  .form-item.form-type-textfield[data-focus="true"] label:not(.error) {
+    .webform-element-help:after {
+      color: $color--brand--contrasting--night-blue !important;
+    }
+  }
+
+  .form-item.form-item.form-type-select.form-disabled {
+    select, label {
+      //border-color: $ta-grey200 !important;
+      //color: $ta-grey200 !important;
+      background-color: $white;
+    }
+  }
+
+  .form-textarea-wrapper label.error {
+    color: $color--brand--warm-black !important;
+    display: inline-block;
+  }
+  label.error {
+    color: $color--brand--warm-black !important;
+  }
+
+  .webform-element-help {
+    position: absolute;
+    left: calc(100% + 1rem);
+    background: none;
+    border: none;
+    span {
+      display: none
+    }
+  }
+
+  .form-required:after {
+    background: none;
+    display: inline-block !important;
+    content: '*' !important;
+    vertical-align: inherit;
+    color: inherit;
+    margin: 0;
+  }
+}
+
+
+
+/*------------------------------------*\
+  03 - Confirmation Modal
+  03 - Confirmation Modal
+\*------------------------------------*/
+#contact-tabs--confirmation-modal,
+#contact-tabs--success-modal {
+  .modal__container {
+    max-width: 480px;
+    overflow: hidden;
+    text-align: left;
+
+    .heading {
+      padding-left: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    @include breakpoint(small down) {
+      margin-left: 1rem;
+      margin-right: 1rem;
+    }
+    @include breakpoint(medium) {
+      padding: 2rem 0;
+    }
+    .modal__close {
+      clip: rect(1px, 1px, 1px, 1px);
+      clip-path: inset(50%);
+      height: 1px;
+      width: 1px;
+      margin: -1px;
+      overflow: hidden;
+      position: absolute;
+      padding: 20px;
+      color: $color--brand--contrasting--night-blue;
+      &:before {
+        font-size: 20px;
+      }
+    }
+  }
+  .modal__content {
+    .field--name-field-description,
+    .field--name-field-formatted-long {
+      p {
+        margin-bottom: 1.2rem;
+      }
+      font-size: 1rem;
+      margin-bottom: 0;
+      strong {
+        font-weight: $font-weight-bold;
+        display: block;
+      }
+    }
+    .field--name-field-formatted-long {
+      font-size: 1rem;
+      .text__subhead {
+        font-size: 1.125rem;
+      }
+    }
+
+    .confirmation-modal--inner-container > div {
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+
+    .email-wrapper {
+      font-weight: 600;
+    }
+
+    .buttons {
+      padding-top: 1.5rem;
+      border-top: 1px solid $color--brand--warm-black;
+      margin-top: $spacing-4;
+      margin-bottom: 6px; // to show bottom box shadow on active
+      @include breakpoint(small) {
+        display: flex;
+        justify-content: flex-end;
+      }
+      .button--secondary {
+        @include btn(secondary);
+      }
+      .link {
+        @include link(primary);
+      }
+      > .button, > .link {
+        display: block;
+        @include breakpoint(xsmall down) {
+          margin: auto;
+        }
+        @include breakpoint(small) {
+          display: inline-block;
+        }
+      }
+      .link + .button {
+        margin-top: $spacing-2;
+        @include breakpoint(small) {
+          margin-top: 0;
+          margin-left: $spacing-8;
+        }
+      }
+    }
+  }
+}
+
+#contact-tabs--success-modal {
+  @include breakpoint(medium) {
+    padding-bottom: 0;
+  }
+  .modal__close.modal__close {
+    clip: initial;
+    clip-path: initial;
+    overflow: initial;
+    position: absolute;
+    width: initial;
+    height: initial;
+    padding: 28px 24px;
+
+    &:before {
+      font-size: 30px;
+    }
+  }
+}

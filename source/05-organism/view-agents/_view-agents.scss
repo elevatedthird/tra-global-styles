@@ -1,0 +1,245 @@
+.view-display-id--agent_list_block {
+  .view-content {
+    .view-content-container {
+      .views-field {
+        height: unset;
+      }
+    }
+  }
+  .submit-button-exposed {
+    display: none;
+  }
+}
+
+.view__display-id--agent_list_block {
+  .toggle-filters {
+    display: none !important;
+  }
+  .view__header {
+    margin-bottom: 20px;
+    text-align: center;
+    //@include sm-screen-up {
+    //  margin-bottom: 70px;
+    //}
+    h2 {
+      margin-bottom: 20px;
+    }
+  }
+
+  .views-exposed-form {
+    margin-bottom: 50px;
+
+    > .atom--form--exposed-filters {
+      display: flex;
+      align-items: flex-end;
+
+      button[type='submit'][name='submit'].search-button.search-icon-button {
+        margin-top: 2rem;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 48px;
+        height: 48px;
+        padding: 12px;
+        display: none;
+      }
+
+      .form-item input[type='text'] {
+        //padding-left: 48px;
+      }
+
+      .site-search-bar__close {
+        margin-top: 2.8rem;
+        top: 0;
+        display: none;
+      }
+
+      .form-wrapper, .form-item {
+        margin: 0;
+        width: 100%;
+      }
+
+      .button {
+        cursor: pointer;
+      }
+
+      .zipcode-client.zipcode-client {
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        gap: 1rem;
+        width: 100%;
+
+        > .form-item {
+          flex: 1 1 50%;
+        }
+
+        @include breakpoint(medium down) {
+          flex-direction: column;
+
+          .submit-button-facade {
+            margin-top: 0;
+          }
+        }
+      }
+
+      input.zipcode-field[type="text"] {
+        padding: 12px 14px;
+      }
+
+      .form-actions, .submit-button-exposed {
+        width: auto;
+        display: none !important;
+      }
+
+      .submit-button-facade {
+        margin-top: 2rem;
+      }
+    }
+  }
+
+  .no-zipcode-results-message {
+    display: none;
+  }
+
+  .view__content {
+    text-align: left;
+    .views-field-field-agent-geofield-proximity {
+      margin-bottom: 10px;
+      @extend %body-s;
+      font-weight: bold;
+    }
+
+    .views-row {
+      $padding-mobile: 10px;
+      $padding-desktop: 20px;
+      margin-bottom: 1.25rem;
+      padding-left: $padding-mobile;
+      padding-right: $padding-mobile;
+      border-bottom: 1px solid $color--brand--warm-black;
+      padding-bottom: 1.25rem;
+
+      //@include sm-screen-up {
+      //  padding-left: $padding-desktop;
+      //  padding-right: $padding-desktop;
+      //}
+      .views-field-name {
+        margin-bottom: 1rem;
+        font-size: 20px;
+      }
+      .address {
+        line-height: 20px;
+        * {
+          @extend %body-l;
+        }
+        margin-bottom: 0;
+        .address-line1 + br, .postal-code + br {
+          display: none;
+        }
+      }
+
+      .views-field-field-agent-email {
+        a {
+          word-break: break-word;
+          hyphens: auto;
+        }
+      }
+
+      .views-field-field-agent-fax {
+        font-weight: 500;
+        @extend %body-l;
+      }
+
+      a {
+        @extend %body-l;
+        text-decoration: none;
+        font-weight: 400;
+        &:hover, &:focus {
+          text-decoration: underline;
+        }
+      }
+      &:nth-of-type(even) {
+        //background-color: $ta-grey200;
+        //padding: $padding-mobile;
+        //@include sm-screen-up {
+        //  padding: $padding-desktop;
+        //}
+      }
+    }
+  }
+
+  .view__empty {
+    text-align: left;
+    margin-top: 20px;
+    a {
+      //@include link(primary);
+      font-size: 16px;
+      font-weight: 350;
+    }
+    //@include sm-screen-up {
+    //  margin-top: 40px;
+    //}
+  }
+
+}
+
+.view__display-id--agent_list_block--wrapper {
+  &.searched {
+    .form-item-field-agent-geofield-proximity-source-configuration-zipcode {
+      display: none;
+    }
+    form.views-exposed-form {
+      padding-left: 0;
+      padding-right: 0;
+      margin-bottom: 15px;
+
+      .zipcode-field, .submit-button-facade, label {
+        display: none !important;
+      }
+
+      .form-type-number, .fieldset-wrapper, .address-result {
+        max-width: 100%;
+        width: 100%;
+      }
+
+      .address-result {
+        padding: 20px;
+        //background-color: $ta-grey200;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        span {
+          text-align: left;
+        }
+
+        strong {
+          font-weight: 600;
+        }
+        .address {
+          //font-weight: 600;
+          display: inline;
+        }
+        .try-again-button {
+          //@include link(primary);
+          white-space: nowrap;
+          text-transform: initial;
+          font-weight: normal;
+        }
+      }
+    }
+  }
+
+  &.try-again, &.no-results {
+    .view__content, .pager, .view__empty {
+      display: none;
+    }
+  }
+
+  &.no-results {
+    .no-zipcode-results-message {
+      //color: $error;
+      display: block;
+    }
+  }
+}

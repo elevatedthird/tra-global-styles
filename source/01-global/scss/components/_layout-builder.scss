@@ -1,0 +1,162 @@
+:root {
+  --gin-toolbar-height: 80px !important;
+}
+.glb-toolbar {
+  height: 80px;
+}
+
+// fix horizontal page scroll caused by xy-grid
+.layout-container {
+  overflow-x: hidden;
+}
+
+.glb-toolbar {
+  opacity: 1 !important;
+  top: 0 !important;
+}
+
+// Make Layout builder action buttons sticky to bottom
+.layout-builder-form {
+  position: relative;
+  padding-bottom: 50px;
+
+  & > .form-actions {
+    background: #f7f7f7;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    margin: 0;
+    padding: 8px 40px;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+    &:after {
+      content: '';
+      display: block;
+      width: 100%;
+      height: 10px;
+      background: linear-gradient(180deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.15));
+      position: absolute;
+      top: -10px;
+      left: 0;
+      z-index: 301;
+    }
+
+    // Button styles are copied from Gin Theme
+    .button {
+      @include btn('secondary');
+      &:after {
+        content: '';
+      }
+    }
+
+    #edit-submit {
+      @include btn('primary');
+      &:after {
+        content: '';
+      }
+    }
+
+    .button {
+      margin-right: 16px;
+    }
+
+    #edit-preview-toggle {
+      order: -1;
+      margin-right: auto;
+    }
+
+    #edit-preview-toggle {
+      .js-form-item,
+      input {
+        margin: 0;
+      }
+    }
+  }
+}
+
+// Alter icon sizes on layout builder browser icons
+.ui-dialog-off-canvas #drupal-off-canvas:not(.drupal-off-canvas-reset),
+.ui-dialog-off-canvas#drupal-off-canvas-wrapper {
+  .js-layout-builder-category {
+    .details-wrapper {
+      a.use-ajax {
+        color: $white;
+        display: flex;
+        align-items: center;
+        img {
+          width: 30px;
+          margin-right: 10px;
+          padding: 5px;
+        }
+      }
+    }
+  }
+}
+
+#drupal-off-canvas-wrapper {
+  .js-layout-builder-category {
+    clear: both;
+  }
+
+  a.layout-builder-browser-block-item {
+    float: left;
+    clear: both;
+  }
+
+  a.browse-library-icon.align-right {
+    font-size: .75em;
+    padding-right: 30px;
+    background: transparent url("../../assets/images/svg/table.svg") no-repeat scroll center right;
+    margin-top: 12px;
+  }
+
+  .align-right {
+    float: right;
+  }
+
+  .clearfix::after {
+    display: table;
+    clear: both;
+    content: "";
+  }
+}
+
+.admin-tooltip {
+  &:before {
+    content: attr(data-admin-tooltip);
+    display: none;
+    // Font styles
+    font-size: 1.5rem;
+    font-weight: 600;
+    background: $color--brand--contrasting--forest-green;
+    color: $color--brand--pure-white;
+    // Position and sizing
+    position: absolute;
+    right: 50%;
+    padding: .5rem;
+    border-radius: 1rem;
+    z-index: 10;
+    transform: translateX(50%);
+  }
+  &.shared-block {
+    &:before {
+      background: $color--brand--contrasting--crimson-red;
+    }
+  }
+  &.layout {
+    &:before {
+      background: $color--brand--contrasting--night-blue;
+      right: 1rem;
+      transform: translateX(0);
+    }
+  }
+  &:focus,
+  &:hover {
+    &:before {
+      display:block;
+    }
+  }
+}

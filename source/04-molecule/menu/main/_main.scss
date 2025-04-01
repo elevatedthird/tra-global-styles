@@ -1,0 +1,279 @@
+.main-menu--inner-wrapper {
+  @include breakpoint(medium) {
+    @include top-bottom(padding, $spacing-1);
+  }
+
+  @include breakpoint(mobile_menu) {
+    @include top-bottom(padding, $spacing-4);
+
+    padding-top: calc(#{$spacing-4} + #{rem-calc(72)}); // 72px is the height of service nav.
+    position: relative;
+
+    &:has(.navigation-wrapper > *:only-child) {
+      padding-top: 1rem;
+    }
+  }
+
+  // General styling for all the menu items (main and service nav).
+  ul.menu {
+    a {
+      padding: $spacing-3 0;
+    }
+
+    li, a {
+      display: block;
+      width: 100%;
+      color: $color--brand--warm-black;
+      font-size: 1rem;
+      font-weight: $global-weight-medium;
+      line-height: 1.5;
+
+      @include breakpoint(mobile_menu) {
+        width: auto;
+      }
+    }
+  }
+
+  .molecule--menu--main {
+    // First level.
+    ul.menu.menu-level--0 {
+      @include xy-gutters($gutters: $grid-container-gutters, $gutter-type: padding);
+
+      @include breakpoint(mobile_menu) {
+        padding: 0;
+      }
+
+      > li {
+        border-top: 1px solid $color--brand--warm-black;
+
+        @include breakpoint(mobile_menu) {
+          border-top: none;
+        }
+
+        > a {
+          font-size: $body-lg-font-size;
+
+          @include breakpoint(mobile_menu) {
+            font-size: $body-sm-font-size;
+          }
+
+          @include breakpoint(xlarge) {
+            font-size: $body-md-font-size;
+          }
+        }
+
+        &:not(:last-child) {
+          @include breakpoint(mobile_menu) {
+            margin-right: $spacing-4;
+          }
+
+          @include breakpoint(xlarge) {
+            margin-right: $spacing-6;
+          }
+        }
+
+        &:last-child {
+          border-bottom: 1px solid $color--brand--warm-black;
+
+          &:has(.button) {
+            border-bottom: none;
+            a {
+              margin-top: 1rem;
+              width: initial;
+            }
+          }
+
+          @include breakpoint(mobile_menu) {
+            border-bottom: none;
+            &:has(.button) {
+              a {
+                margin-top: 0rem;
+                width: auto;
+              }
+            }
+          }
+
+        }
+
+        &.is-dropdown-submenu-parent,
+        &.is-accordion-submenu-parent {
+          > a {
+            position: relative;
+            padding-right: 20px;
+            white-space: normal;
+
+            &:after {
+              content: '\e5cf'; // Chevron down.
+              font-family: $icon-font-family;
+              position: absolute;
+              top: 50%;
+              transform: (translateY(-50%));
+              right: -2px;
+              font-size: 1.2rem;
+            }
+          }
+
+          &.is-active,
+          &[aria-expanded='true'] {
+            > a {
+              &:after {
+                content: '\e5ce';
+              }
+            }
+          }
+        }
+
+        &.is-dropdown-submenu-parent {
+          @include breakpoint(mobile_menu) {
+            // Fancy underline.
+            > a {
+              &:before {
+                content: '';
+                position: absolute;
+                bottom: 13px;
+                left: 0;
+                width: calc(100% - 20px);
+                height: 0.1em;
+                background-color: black;
+                opacity: 1;
+                transition: opacity 300ms, transform 300ms;
+                transform: scale(0);
+                transform-origin: center;
+              }
+            }
+
+            &.is-active {
+              > a {
+                &:before {
+                  transform: scale(1);
+                }
+              }
+            }
+          }
+        }
+      }
+
+      @include breakpoint(mobile_menu) {
+        display: flex;
+        line-height: 1.5;
+        flex-wrap: nowrap;
+        align-items: center;
+        justify-content: flex-start;
+      }
+    }
+
+    // Second level.
+    ul.menu.menu-level--1 {
+
+      // Category blocks.
+      > li {
+        @include breakpoint(mobile_menu) {
+          &:first-child {
+            grid-row-start: 1;
+            grid-row-end: 4;
+          }
+        }
+        padding: 0 $spacing-4;
+        margin-bottom: $spacing-3;
+
+        > a, > p {
+          font-size: $body-md-smallscreen;
+          line-height: 1.5;
+          padding: 0;
+          font-weight: $font-weight-bold;
+        }
+        // Menu items in a category block.
+        ul.menu.menu-level--2 {
+          display: block !important;
+          a {
+            position: relative;
+            padding-left: 28px;
+            white-space: normal;
+
+            &:after {
+              content: '\f1df'; // East.
+              font-family: $icon-font-family;
+              position: absolute;
+              top: 50%;
+              transform: (translateY(-50%));
+              left: 0;
+              font-size: 1.2rem;
+              width: 24px;
+              height: 24px;
+            }
+          }
+        }
+      }
+
+      // Second level, customizations for Desktop.
+      @include breakpoint(mobile_menu) {
+        @include left-right(padding, 3rem);
+        @include top-bottom(padding, rem-calc(48));
+
+        display: none;
+        position: absolute;
+        z-index: 100;
+        left: 0;
+        top: 100%;
+        width: 100%;
+
+        > li {
+          padding: 0;
+        }
+
+        &.js-dropdown-active {
+          background-color: $color--brand--pure-white;
+          display: grid;
+          grid-template-columns: repeat(4, auto);
+          gap: 0 rem-calc(48);
+          max-width: 90rem;
+
+          @include breakpoint(xlarge) {
+            padding-left: calc(4.5rem + 248px + 133px);
+            padding-right: 4.5rem;
+          }
+
+          &:before {
+            content: '';
+            position: absolute;
+            background: $color--white;
+            width: 100vw;
+            height: 100%;
+            left: 50%;
+            top: 0;
+            transform: translateX(-50%);
+          }
+
+          // Category blocks.
+          > li {
+            position: relative;
+            z-index: 101;
+            margin-bottom: 2rem;
+
+            > a, > p {
+              font-size: $heading-sm-font-size;
+              line-height: 1.5;
+              padding: 0;
+              margin-bottom: 0;
+              font-weight: $font-weight-medium;
+            }
+
+            // Menu items in a category block.
+            ul.menu.menu-level--2 {
+              display: block;
+
+              a {
+                line-height: 1.5;
+                padding: rem-calc(12) 0;
+
+                &:after {
+                  display: none;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

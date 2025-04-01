@@ -1,0 +1,29 @@
+.layout--footer-portal {
+  // style things
+  // This is kinda wrong to manipulate the footer here when this template doesn't have this html but... we can refactor if we need to.
+  .molecule--menu--footer.molecule--menu--footer {
+    ul {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      li {
+        margin-bottom: 0;
+        *:last-child {
+          margin-bottom: 0;
+        }
+        p {
+          @extend %body-l;
+        }
+
+        a {
+          font-weight: 700;
+          &:focus-visible {
+            background: $color--brand--focus-yellow;
+            color: $color--brand--warm-black;
+            outline: none;
+          }
+        }
+      }
+    }
+  }
+}

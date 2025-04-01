@@ -1,0 +1,112 @@
+.organism--dmb-message {
+  max-height: 100vh;
+  overflow: auto;
+
+  .dmb-notification {
+    position: relative;
+    margin-bottom: 0;
+    background-color: $color--info--bg;
+
+    @each $name, $color in $message-types {
+      &.#{$name} {
+        background-color: $color;
+      }
+    }
+
+    &:not(:last-child) {
+      margin-bottom: $spacing-1;
+    }
+  }
+
+  .dmb-notification-content {
+    @include xy-gutters($gutters: $grid-container-gutters, $gutter-type: padding);
+
+    position: relative;
+  }
+
+  // "x" for closing notification.
+  .close-dmb-notification {
+    @include replace-text-with-materialicon(close, rem-calc(24));
+    @include xy-gutters($gutters: $grid-container-gutters, $gutter-type: margin, $gutter-position: right);
+
+    display: none;
+    color: $color--brand--warm-black;
+    position: absolute;
+    top: $spacing-4;
+    right: 0;
+  }
+
+  // If the bar is not dismissible hide the close button.
+  [dmb-dismissible="1"] .close-dmb-notification {
+    display: block;
+  }
+}
+
+/*------------------------------------*\
+  Individual Messages
+\*------------------------------------*/
+.paragraph--type--message {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  row-gap: $spacing-2;
+  color: $color--brand--warm-black;
+  font-size: rem-calc(18);
+  font-weight: 400;
+  line-height: 1.5;
+  padding: $spacing-4 $spacing-8;
+  position: relative;
+
+  @include breakpoint(large) {
+    font-size: 1rem;
+    padding-left: $spacing-10;
+    padding-right: rem-calc(88);
+  }
+
+  @include breakpoint(xlarge) {
+    padding-right: rem-calc(152);
+  }
+
+  a {
+    @include link();
+
+    text-align: right;
+
+    @include breakpoint(small) {
+      white-space: nowrap;
+    }
+  }
+
+  // @todo - Restructure this into a mixin and a map with all notification types.
+  @include materialicon-before(info) {
+    position: absolute;
+    color: $color--info;
+    left: 0;
+    top: $spacing-4;
+    font-size: rem-calc(24);
+  }
+
+  .error & {
+    @include materialicon-before(warning) {
+      color: $color--error;
+    }
+  }
+
+  .warning & {
+    @include materialicon-before(emergency_home) {
+      color: $color--alert;
+    }
+  }
+
+  .info & {
+    @include materialicon-before(info) {
+      color: $color--info;
+    }
+  }
+
+  .positive & {
+    @include materialicon-before(task_alt) {
+      color: $color--success;
+    }
+  }
+}

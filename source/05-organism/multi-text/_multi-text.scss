@@ -1,0 +1,37 @@
+.organism--multi-text {
+  @include breakpoint(mobile_menu) {
+    margin-bottom: $spacing-6;
+  }
+
+  .organism--multi-text--heading {
+    font-size: $label-lg-font-size;
+    font-weight: $global-weight-medium;
+    line-height: $label-lg-line-height;
+    @include top-bottom(padding, $spacing-3);
+  }
+  .organism--multi-text--items {
+    margin-left: 0;
+
+    a {
+      @include link(reset);
+    }
+
+    @media (hover: hover) {
+      a:not([class]) {
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+
+    // Footer menu.
+    > li {
+      @include top-bottom(padding, $spacing-3);
+      list-style: none;
+
+      font-size: $body-md-font-size;
+      font-weight: $global-weight-medium;
+      line-height: $body-md-line-height;
+    }
+  }
+}

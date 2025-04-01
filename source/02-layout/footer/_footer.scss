@@ -1,0 +1,18 @@
+.layout--footer {
+  > .grid-container {
+    padding-top: $spacing-12;
+    padding-bottom: $spacing-12;
+    @include breakpoint(xlarge) {
+      padding-top: $spacing-16;
+      padding-bottom: $spacing-16;
+    }
+  }
+
+  .footer {
+    margin-bottom: $spacing-6;
+  }
+
+  .tra-footer-inner.grid-container {
+    padding-bottom: 0;
+  }
+}

@@ -1,0 +1,114 @@
+// Regional Select dropdown.
+.molecule--menu--footer-regional-select {
+  width: 100%;
+  margin-bottom: $spacing-6;
+  @include breakpoint(xlarge) {
+    margin-bottom: $spacing-8;
+  }
+
+  .menu {
+    margin-left: 0;
+  }
+
+  // General styles.
+  // Override default link styles.
+  ul.menu a {
+    &,
+    &.is-active {
+      @include link(reset);
+    }
+    &:hover {
+      text-decoration: none;
+    }
+  }
+
+  // Top-level menu.
+  > .menu {
+    background: $color--brand--pure-white;
+    color: $color--brand--warm-black;
+    width: rem-calc(324);
+    @include breakpoint(medium) {
+      width: rem-calc(240);
+    }
+
+    li {
+      &::marker {
+        content: '';
+      }
+
+      a {
+        display: block;
+        text-decoration: none;
+        padding: 1rem 2rem 1rem .5rem;
+        font-weight: 500;
+
+        &:hover {
+          cursor: pointer;
+        }
+      }
+    }
+
+    // Parent menu item in nesting.
+    .menu-item--expanded {
+      border: 1px solid $color--brand--warm-black;
+      position: relative;
+      &:hover {
+        cursor: pointer;
+      }
+      &:after {
+        display: inline-block;
+        font-style: normal;
+        font-weight: normal;
+        font-variant: normal;
+        line-height: 1;
+        text-rendering: auto;
+        text-transform: none;
+        speak: none;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        content: "";
+        font-family: "Material Symbols Outlined";
+        position: absolute;
+        font-size: 1.4rem;
+        right: 1.25rem;
+        top: 1rem;
+
+      }
+
+      // Sub menu is hidden on load.
+      .menu {
+        display: none;
+      }
+    }
+
+    // JS added class to show sub-menu.
+    &.show-dropdown {
+      .menu-item--expanded {
+        &:after {
+          color: red;
+        }
+
+        .menu {
+          position: absolute;
+          display: block;
+          width: 100%;
+          top: 100%;
+          background: $color--brand--pure-white;
+          border-radius: rem-calc(4);
+          border: 1px solid $color--brand--warm-black;
+
+          li {
+            &:hover,
+            &:focus {
+              background: $color--brand--pure-white;
+
+              a {
+                text-decoration: none;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

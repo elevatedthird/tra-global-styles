@@ -1,0 +1,47 @@
+.organism--collapse-panel {
+  .date{
+    margin-top:4px;
+    margin-bottom:0;
+  }
+  .accordion-item {
+    &:first-of-type:before, &:after {
+      background: $color--brand--warm-black;
+    }
+  }
+
+  .accordion-content{
+    margin-bottom: 1rem;
+    p {
+      line-height:inherit;
+      font-size:inherit;
+      @include breakpoint(medium down){
+        font-size: 22px;
+        line-height: 33px;
+      }
+    }
+  }
+  //TODO not sure if there's a better solution than just overriding the padding for the heading here
+  .molecule--accordion-item--header {
+    padding-top: 12px;
+    padding-bottom: 12px;
+  }
+  .molecule--accordion-item--title {
+    margin-right:20px; //prevent overlapping the caret icon
+    padding: 12px 0;
+    @include breakpoint(large){
+      margin-bottom:0;
+    }
+  }
+  .heading{
+    font-size:26px;
+    line-height:31.2px;
+    @include breakpoint(medium down){
+      font-size: 22px;
+      line-height: 26px;
+    }
+  }
+  .molecule--accordion-item--title {
+    padding: 4px 0;
+  }
+
+}

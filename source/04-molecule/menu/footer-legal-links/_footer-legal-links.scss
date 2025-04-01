@@ -1,0 +1,35 @@
+// Footer Legal menu links.
+.molecule--menu--footer-legal-links {
+  // Legal Links are styled differently from the Footer menu.
+  > ul.menu.menu-level--0 {
+    &.accordion-menu > li {
+      border-top: 0;
+    }
+
+    @include breakpoint(mobile_menu) {
+      > .menu-item > a {
+        display: none;
+      }
+
+      ul.menu-level--1 {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        row-gap: .5rem;
+
+        > .menu-item {
+          > a {
+            padding: 0;
+          }
+
+          &:not(:last-child) {
+            > a:after {
+              content: '|';
+              margin: 0 .5rem;
+            }
+          }
+        }
+      }
+    }
+  }
+}

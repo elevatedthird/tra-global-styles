@@ -1,0 +1,58 @@
+
+// Choose the styles that we actually want PRINTED into our stylesheets
+@include foundation-global-styles;
+@import '../../../00-config/mixins/typography';
+@include foundation-typography;
+
+@include foundation-xy-grid-classes(true, true, true, true, true, true, true, true );
+@include foundation-flex-classes;
+@include foundation-visibility-classes;
+@include foundation-text-alignment;
+@include foundation-prototype-sizing;
+@include foundation-responsive-embed;
+
+:root {
+  --theme-accent-color-vibrant: $color--white;
+  --theme-accent-color-contrasting: $color--black;
+}
+
+.stretched-link {
+  position: relative;
+}
+
+.stretched-link a::after, .stretched-link-tag-before::before {
+  bottom: 0;
+  content: '';
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.layout-container, .reveal {
+  @include aries-icons();
+
+  // generate helper classes
+  @import "theme-profiles";
+  @import "general";
+  @import "grid";
+  @import "typography";
+  @import "colors";
+  @import "links";
+  @import "buttons";
+}
+
+.overflow-hidden {
+  overflow: hidden;
+}
+
+#global-overlay {
+  display: none;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  background-color: rgba(#000, .5);
+}

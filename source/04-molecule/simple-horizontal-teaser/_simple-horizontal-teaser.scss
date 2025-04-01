@@ -1,0 +1,34 @@
+.molecule--simple-horizontal-teaser {
+  // style things
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 1rem;
+  .media-wrapper, .content {
+    flex: 1 1 50%;
+  }
+
+  @include breakpoint(large only) {
+    display: inline-block;
+    flex-direction: column;
+    .media-wrapper {
+      margin-bottom: 8px;
+    }
+    .media-wrapper, .content {
+      flex: 1 1 100%;
+    }
+  }
+
+  @include breakpoint(medium down) {
+    .media-wrapper {
+      margin-bottom: 8px;
+    }
+    .media-wrapper {
+      flex: 1 1 22%;
+    }
+  }
+
+  &:has(.stretched-link-tag-before:focus-visible) {
+    outline: 4px solid $color--brand--focus-yellow;
+  }
+}

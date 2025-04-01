@@ -1,0 +1,15 @@
+@each $key, $value in $link-profiles {
+  .links--#{$key} .link, .links--#{$key} a, .link--#{$key} {
+    @include link(#{$key});
+  }
+}
+
+a {
+  @include link();
+
+  // Use consistent styling for keyboard focus on all links.
+  &:focus-visible {
+    background-color: $color--focus--yellow;
+    color: $color--link--default;
+  }
+}

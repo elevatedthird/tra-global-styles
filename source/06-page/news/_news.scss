@@ -1,0 +1,36 @@
+.page--news {
+  h1, .subheading, .meta, .body {
+    margin-bottom: $spacing-6;
+  }
+
+  h1 {
+    font-size: rem-calc(32);
+    line-height: 1.2;
+
+    @include breakpoint(medium) {
+      font-size: rem-calc(36);
+      line-height: 1.1;
+    }
+
+    @include breakpoint(large) {
+      line-height: 1.2;
+    }
+
+    @include breakpoint(xlarge) {
+      font-size: rem-calc(48);
+      line-height: 1.1;
+    }
+  }
+
+  .subheading.h3 {
+    @include breakpoint(xlarge) {
+      font-size: $h2-font-size;
+    }
+  }
+
+  .meta {
+    @include breakpoint(large) {
+      line-height: 1.5;
+    }
+  }
+}

@@ -1,0 +1,330 @@
+@import "~@glidejs/glide/src/assets/sass/glide.core";
+.organism--tab-slider {
+
+  .organism--tab-slider-description {
+    margin-top: $spacing-6;
+  }
+
+  .tab-list {
+    margin-top: $spacing-4;
+    @include breakpoint(large) {
+      margin-top: $spacing-12;
+    }
+    .move-list {
+      display: none;
+    }
+    &.has-scroll {
+      position: relative;
+      .move-list {
+        cursor: pointer;
+        padding: $spacing-4;
+        position: absolute;
+        height: calc(100% - 1px);
+        top: 0;
+        z-index: 2;
+        display: block;
+
+        &:before {
+          color: $color--brand--aegon-blue;
+        }
+
+        &.disabled { display: none; }
+
+        &[data-direction="left"] {
+          left: 0;
+          margin-left: -#{$spacing-4};
+          @include replace-text-with-icon(left);
+          background: linear-gradient(90deg, $white 50%, rgba($white, 0) 100%);
+        }
+
+        &[data-direction="right"] {
+          right: 0;
+          margin-right: -#{$spacing-4};
+          @include replace-text-with-icon(right);
+          background: linear-gradient(-90deg, $white 50%, rgba($white, 0) 100%);
+        }
+      }
+    }
+  }
+
+  .has-scroll {
+    .tabs__tab-list {
+      overflow-x: scroll;
+      overflow-y: hidden;
+      justify-content: initial !important;
+      -ms-overflow-style: none;  /* Internet Explorer 10+ */
+      scrollbar-width: none;  /* Firefox */
+      &::-webkit-scrollbar {
+        display: none;  /* Safari and Chrome */
+      }
+
+      @include breakpoint(medium) {
+        overflow-x: hidden;
+      }
+      // Make sure horizontal scroll bar doesn't show on IE11
+      @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+        overflow-x: hidden;
+      }
+    }
+  }
+  .tabs__tab-list {
+    display: flex;
+    @include breakpoint(small only) {
+      scroll-snap-type: x mandatory;
+      overflow-x: scroll;
+    }
+    @include breakpoint(medium) {
+      justify-content: center;
+    }
+
+    .ul-spacer--right {
+      border-bottom: 2px solid $color--brand--warm-black;
+      flex-grow: 1;
+    }
+
+    li {
+      scroll-snap-align: center;
+
+      a {
+        height: 52px;
+        padding: $spacing-3 $spacing-6 $spacing-3;
+        @include breakpoint(xlarge) {
+          padding: 12px 48px 12px;
+        }
+        font-size: $body-md-font-size;
+        line-height: $body-md-line-height;
+        font-weight: $global-weight-medium;
+        display: block;
+        text-align: center;
+        text-decoration: none;
+        white-space: nowrap;
+        box-sizing: border-box;
+        @include breakpoint(large) {
+          border-top: 2px solid transparent;
+          border-bottom: 2px solid $color--brand--warm-black;
+          &.is-selected {
+            border: 2px solid $color--brand--warm-black;
+            border-bottom-color: transparent;
+          }
+        }
+
+        @include selectors(active) {
+          color: $color--brand--warm-black;
+        }
+
+        &:hover, &:focus-visible, &.is-selected {
+          color: $color--brand--warm-black;
+          text-decoration: underline;
+          text-underline-offset: 4px;
+          text-decoration-thickness: 2px;
+        }
+        &:focus-visible {
+          background-color: $color--brand--focus-yellow;
+        }
+
+      }
+    }
+  }
+
+  .tab-dropdown-label {
+    font-weight: $font-weight-bold;
+    margin-top: $spacing-8;
+    @include left-right(margin, 0);
+    @include breakpoint(medium) {
+      width: 300px;
+      @include left-right(margin, auto);
+    }
+    @include breakpoint(large) {
+      display: none;
+    }
+  }
+
+  .tab-list.is-dropdown {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    @include breakpoint(medium) {
+      width: 300px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    button.dropdown-button {
+      display: flex;
+      align-items: flex-start;
+      position: relative;
+      color: $color--brand--aegon-blue;
+      font-weight: 400;
+      width: 100%;
+      font-size: 16px;
+      justify-content: space-between;
+      padding: 14px 16px;
+      border: 2px solid $color--brand--warm-black;
+      &:after {
+        color: $color--brand--warm-black;
+        font-weight: 600;
+        font-family: $icon-font-family;
+        font-size: 24px;
+        line-height: 18px;
+        display: inline-block;
+        content: "\e316";
+        transform: rotate(180deg);
+        transition: transform .25s;
+      }
+
+      .dropdown-button__text {
+        font-size: $label-lg-font-size;
+        font-weight: $font-weight-medium;
+      }
+
+      .dropdown-button__text, .dropdown-button__label, &:after {
+        color: $color--brand--warm-black;
+      }
+
+      &.is-open {
+        .dropdown-button__text, &:after, .dropdown-button__label {
+          color: $color--brand--warm-black;
+        }
+        &:after {
+          transform: none;
+        }
+      }
+    }
+    .tabs__tab-list {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      margin: auto;
+      overflow-x: auto;
+      background: white;
+      z-index: 10;
+      display: none;
+      flex-direction: column;
+      .aries-tabs__trigger {
+        &:after {
+          display: none;
+        }
+      }
+    }
+    button.dropdown-button.is-open + .tabs__tab-list {
+      border: 2px solid $color--brand--warm-black;
+      li {
+        border: 0;
+      }
+      display: flex;
+    }
+
+  }
+}
+
+.paragraph--type--tab-teaser-slider  {
+  display: none;
+  position: relative;
+
+  padding-top: $spacing-8;
+  @include breakpoint(large) {
+    padding-top: $spacing-12;
+  }
+
+  .is-initialized & {
+    display: inherit;
+  }
+
+  &.is-hidden {
+    display: none;
+  }
+  @include breakpoint(xsmall down) {
+    .glide__track {
+      margin-right: calc(-1*(100vw - 100%)/2);
+    }
+
+    .glide {
+      display: flex;
+      flex-direction: column;
+    }
+
+  }
+
+  .glide__slide {
+    height: auto;
+    margin-bottom: 3px;
+  }
+
+  .glide__track {
+    position: relative;
+    z-index: 1;
+  }
+  .glide__arrows {
+    position: relative;
+    order: -1;
+    width: 100%;
+    margin: $spacing-4 auto 0;
+    justify-content: center;
+    display: flex;
+    column-gap: $spacing-6;
+
+    @include breakpoint(large) {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      display: flex;
+      width: calc(100% + 84px);
+      justify-content: space-between;
+      margin: auto;
+      margin-left: -42px;
+    }
+    @include breakpoint(xlarge) {
+      width: calc(100% + 96px);
+      margin-left: -48px;
+    }
+
+    .glide__arrow {
+      font-size: 20px;
+      color: white;
+      cursor: pointer;
+
+      &:after, &:before {
+        background: $color--brand--warm-black;
+        padding-top: 8px;
+        border-radius: 50%;
+        font-weight: 600;
+        height: 36px;
+        width: 36px;
+        font-family: $icon-font-family;
+        font-size: 24px;
+        line-height: 18px;
+        display: inline-block;
+      }
+      &:hover, &:focus-visible {
+        opacity: .5;
+      }
+    }
+    .glide__arrow--left {
+      &:before {
+        content: "\e5cb"; // left arrow alt
+        padding-right: 1px;
+      }
+    }
+    .glide__arrow--right {
+      &:before {
+        content: "\e5cc"; // right arrow alt
+        padding-left: 1px;
+      }
+    }
+  }
+  &.is-first-slide {
+    .glide__arrow--left {
+      opacity: .6;
+      pointer-events: none;
+    }
+  }
+
+  &.is-last-slide {
+    .glide__arrow--right {
+      opacity: .6;
+      pointer-events: none;
+    }
+  }
+}
+

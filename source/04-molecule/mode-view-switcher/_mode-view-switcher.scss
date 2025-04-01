@@ -1,0 +1,18 @@
+.view-mode-switcher {
+  display: none;
+  position: relative;
+  z-index: 1;
+
+  @include breakpoint(large) {
+    display: block;
+  }
+  button {
+    cursor: pointer;
+    &:last-of-type {
+      margin-left: 16px;
+    }
+    &.is-active {
+      border-bottom: 2px solid $color--black;
+    }
+  }
+}

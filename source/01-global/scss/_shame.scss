@@ -1,0 +1,165 @@
+// Quick fixes
+// Deadlines happen, so put your quick fixes here. Hopefully there will be time
+// later to move/re-factor these styles into their proper place.
+
+.toolbar-icon-config-pages-orn-settings {
+  &:before {
+    mask-image: url("../../assets/images/svg/cog.svg") !important;
+  }
+}
+
+.left_sidebar.layout-section .grid-container--narrow.layout-column {
+  @include breakpoint(medium) {
+    padding: 0;
+  }
+  @include breakpoint(large) {
+    @include xy-cell-gutters($grid-margin-gutters, margin, left right, large, false);
+    padding: 0;
+    max-width: 100%;
+    .block {
+      .grid-container--narrow {
+        margin-left: 0;
+      }
+    }
+  }
+}
+
+input.webform-webform-telephone-international.webform-webform-telephone-international {
+  padding-left: 50px  !important;
+}
+
+.media--view-mode-rich-text-full-width  {
+  @include breakpoint(medium) {
+    margin-left: calc((-25vw / 2) + 10px + 2rem);
+    margin-right: calc((-25vw / 2) + 10px + 2rem);
+  }
+  @include breakpoint(large) {
+    margin-left: calc((-1440px / 4) + 3rem);
+    margin-right: calc((-1440px / 4) + 3rem);
+  }
+  @include  breakpoint(xlarge) {
+    margin-left: calc((-1440px / 4) + 1.5rem);
+    margin-right: calc((-1440px / 4) + 1.5rem);
+  }
+}
+
+.media--view-mode-rich-text-full-width img {
+  width: 100%;
+}
+
+
+@include breakpoint(mobile_menu down) {
+  .sidebars--sidebar-right {
+    .block--agn-core-vacancy-apply-link {
+      display: none;
+    }
+  }
+  .page-node-type-job-vacancy .sidebars--sidebar-right {
+      display: none;
+  }
+}
+
+// There is a bug where the .ui-widget-overlay covers the block edit screen.
+.ui-widget-overlay {
+  z-index: 98 !important;
+}
+
+// gin adds a second handle for tabledrag lets hide one.
+.tabledrag-cell--only-drag .handle {
+  display: none;
+}
+
+button, .cursor-pointer {
+  cursor: pointer;
+}
+
+.margin-bottom--none {
+  margin-bottom: 0;
+}
+
+.margin-top--none {
+  margin-top: 0;
+}
+
+.margin-top--24 {
+  margin-top: 24px;
+}
+
+.margin-bottom--24 {
+  margin-bottom: 24px;
+}
+
+
+.margin-top--16, #main-content .margin-top--16 {
+  margin-top: 16px;
+}
+
+
+.ta-notification {
+  padding: 12px 2rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  span {
+    font-weight: bold;
+  }
+  p {
+    margin-bottom: 0;
+    font-size: 16px;
+  }
+}
+
+.notification__success {
+  background: $color--success--bg;
+
+  span {
+    color: $color--success;
+  }
+}
+.notification__warning {
+  background: $color--error--bg;
+
+  span {
+    color: $color--error;
+  }
+}
+
+.notification__info {
+  background: $color--info--bg;
+
+  span {
+    color: $color--info;
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.spinner {
+  height: 4rem;
+  width: 4rem;
+  border-radius: 8rem;
+  border: 3px transparent solid;
+  border-top: 3px solid #ee0000;
+  -webkit-animation: spin 1.5s infinite;
+  animation: spin 1.5s infinite;
+  display: inline-block;
+}
+.spinner.spinner--white {
+  border-top: 3px solid white !important;
+}
+.spinner.spinner--small {
+  height: 1rem;
+  width: 1rem;
+  border-radius: 2rem;
+}
+
+.ajax-progress-fullscreen {
+  z-index: 9000;
+}

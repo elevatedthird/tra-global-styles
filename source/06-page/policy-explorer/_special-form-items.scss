@@ -1,0 +1,48 @@
+form {
+  .get-a-quote-height-selection {
+    margin-top: -2px;
+    .webform-multiple-table,
+    table {
+      position: relative;
+      width: 100%;
+    }
+
+    .tabledrag-toggle-weight-wrapper {
+      display: none !important;
+    }
+
+    thead {
+      display: none;
+    }
+
+    tbody {
+
+      tr {
+
+        > * {
+
+          &:nth-child(1),
+          &:nth-child(3),
+          &:nth-child(4) {
+            display: none !important;
+          }
+
+          &:nth-child(2) {
+            display: flex !important;
+            gap: 1.5rem;
+            padding: 0;
+
+            > * {
+              margin-top: 0px;
+              text-align: left;
+              width: 50%;
+            }
+            &:after {
+              content: none;
+            }
+          }
+        }
+      }
+    }
+  }
+}

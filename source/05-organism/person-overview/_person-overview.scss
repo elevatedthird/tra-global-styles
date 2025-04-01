@@ -1,0 +1,26 @@
+.organism--person-overview {
+  .organism--person-overview--inner-wrapper {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: $spacing-8;
+
+    @include breakpoint(medium) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include breakpoint(large) {
+      grid-template-columns: repeat(4, 1fr);
+      div:nth-child(n+5) {
+        margin-top: $spacing-10;
+      }
+    }
+
+  .organism--card--inner-wrapper {
+    padding: 0 .5rem;
+    img {
+      width: 100%;
+    }
+  }
+}
+
+}

@@ -1,0 +1,56 @@
+@import "hamburger";
+
+.layout--header {
+  a {
+    @include link(reset);
+  }
+
+  // This is the collapsible main navigation area, that becomes visible on mobile when activated by the hamburger icon.
+  .navigation-wrapper {
+    display: flex;
+    justify-content: flex-end;
+    @include breakpoint(medium down) {
+      display: none;
+      position: absolute;
+      left: 0;
+      top: 48px; // .molecule--site-branding height
+      background: $color--white;
+      width: 100%;
+      height: calc(100vh - 48px); // .molecule--site-branding height
+      overflow-y: auto;
+      opacity: 0;
+      transform: translateX(-100%);
+      transition: transform, opacity;
+      transition-duration: 250ms;
+      transition-timing-function: ease-in-out;
+      -webkit-transition: transform, opacity;
+      -webkit-transition-duration: 250ms;
+      -webkit-transition-timing-function: ease-in-out;
+      pointer-events: none;
+
+      li, a {
+        width: 100%;
+        line-height: 1.5;
+      }
+
+      a, a:hover, a:focus, a:visited, a:active {
+        &:not(.button) {
+          color: $color--brand--warm-black;
+        }
+      }
+
+      .menu-active & {
+        padding-top: $spacing-6;
+        transform: translateX(0);
+        display: block;
+        opacity: 1;
+        pointer-events: auto;
+        padding-bottom: $spacing-30;
+      }
+
+      .toolbar-vertical & {
+        height: calc(100vh - 50px - 45px - 39px);
+      }
+    }
+  }
+}

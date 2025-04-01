@@ -1,0 +1,95 @@
+.organism--post-footer {
+  margin-bottom: $spacing-6;
+
+  @include breakpoint(large) {
+    margin-bottom: $spacing-8;
+  }
+
+  .post-footer-align {
+    row-gap: $spacing-6;
+  }
+
+  .sitemap {
+    margin-bottom: $spacing-6;
+
+    @include breakpoint(large) {
+      margin-bottom: $spacing-8;
+    }
+
+    // Override default link styles.
+    .layout-container .bg-color-contrasting-warm-black & {
+      a {
+        @include link(reset);
+      }
+
+      a:not([class]) {
+        &:hover {
+          text-decoration: underline;
+
+          &:after {
+            text-decoration: none;
+          }
+        }
+        &:focus-visible {
+          &:after {
+            color: $color--brand--pure-white;
+          }
+        }
+      }
+    }
+
+    // Sitemap link with icon.
+    a {
+      position: relative;
+      margin-left: 22px;
+
+      @include materialicon-after(map) {
+        line-height: 1.5;
+      }
+
+      &:after {
+        font-size: $body-md-font-size;
+        line-height: 1.5;
+        position: absolute;
+        left: -22px;
+      }
+    }
+  }
+
+  .organism--footer--site-branding {
+    .body-s {
+      margin-bottom: 0;
+    }
+    .site-branding--link {
+      display: block;
+      width: 152px;
+      height: auto;
+      margin-bottom: $spacing-2;
+      svg {
+        width: 152px;
+        height: auto;
+      }
+    }
+  }
+
+  .organism--post-footer--social-menu {
+    .molecule--menu--social {
+      align-items: center;
+      padding-top: 5px;
+      @include breakpoint(small) {
+        padding-top: 0;
+      }
+
+      a {
+        &:hover, &:active, &:focus {
+          text-decoration: none;
+        }
+      }
+    }
+
+    .molecule--menu--social--icon {
+      height: 44px;
+      width: 44px;
+    }
+  }
+}
