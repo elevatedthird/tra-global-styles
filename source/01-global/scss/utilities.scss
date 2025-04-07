@@ -1,0 +1,34 @@
+@include foundation-xy-grid-classes(true, true, true, true, true, true, true, true);
+@include foundation-flex-classes;
+@include foundation-visibility-classes;
+@include foundation-text-alignment;
+@include foundation-prototype-sizing;
+@include foundation-responsive-embed;
+
+
+// utility classes
+.overflow-hidden {
+  overflow: hidden;
+}
+
+.stretched-link {
+  position: relative;
+}
+
+.stretched-link a::after, .stretched-link-tag-before::before {
+  bottom: 0;
+  content: '';
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+// exclusive to layout
+.layout-container, .reveal {
+  @import 'utilities/typography';
+  @import 'utilities/general';
+  @import 'utilities/grid';
+  @import 'utilities/colors';
+}
+

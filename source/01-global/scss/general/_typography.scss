@@ -79,29 +79,6 @@ h6 {
   }
 }
 
-// Gradient text - currently used for Pre-Footer Heading
-// Gradient color will be added through the .gradient--{gradient-color} class from general/_colors.scss
-.gradient-text {
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.fw--normal.fw--normal.fw--normal {
-  font-weight: 400;
-}
-
-.fw--normal-plus {
-  font-weight: 500;
-}
-
-.fw--semi-bold {
-  font-weight: 600;
-}
-
-.fw--bold {
-  font-weight: 700;
-}
-
 // Common List Styles.
 ul:not([class]),
 ul[class=""],
@@ -143,6 +120,7 @@ ol {
   }
 }
 
+// @TODO most likely a drupal specific class
 .form-type-processed-text {
   *:last-child {
     margin-bottom: 0;

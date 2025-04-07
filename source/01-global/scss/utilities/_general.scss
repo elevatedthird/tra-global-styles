@@ -1,0 +1,44 @@
+.text-truncate {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: inline-block;
+  width: 100%;
+}
+
+.js-hide.js-hide {
+  display: none;
+}
+
+.position-relative {
+  position: relative;
+}
+
+.position-absolute {
+  position: absolute;
+}
+
+.no-padding.no-padding {
+  padding: 0;
+}
+
+.image-overlay {
+  backdrop-filter: blur(2px);
+  filter: blur(50px);
+}
+
+.text-transform-uppercase {
+  text-transform: uppercase;
+}
+
+.truncate {
+  white-space: nowrap;         /* Prevent the text from wrapping to the next line */
+  overflow: hidden;            /* Hide the overflowing text */
+  text-overflow: ellipsis;     /* Show an ellipsis ('...') when text overflows */
+}
+
+.disabled {
+  cursor: default;
+  pointer-events: none;
+  opacity: 0.5;
+}

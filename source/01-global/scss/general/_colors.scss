@@ -1,11 +1,3 @@
-@each $name, $color in $color-palette {
-  @each $class, $prop in $color_class_types {
-    .#{$class}--#{"" + $name} {
-      #{$prop}: $color;
-    }
-  }
-}
-
 @each $name, $gradient in $gradients {
   .gradient--#{"" + $name} {
     background-image: $gradient;

@@ -13,11 +13,6 @@
   }
 }
 
-.width-mid {
-  max-width: $width-mid;
-  margin: auto
-}
-
 .grid-container.small-gutters {
   @include -zf-each-breakpoint {
     @include xy-grid-container($global-width, $grid-margin-gutters);

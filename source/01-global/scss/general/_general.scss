@@ -5,19 +5,6 @@ p:empty {
   left: -9999px;
 }
 
-.text-truncate {
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  display: inline-block;
-  width: 100%;
-}
-
-.js-hide.js-hide {
-  display: none;
-}
-
-
 .sr-only:not(:focus):not(:active) {
   clip: rect(0 0 0 0);
   clip-path: inset(50%);
@@ -75,23 +62,6 @@ p:empty {
   }
 }
 
-.position-relative {
-  position: relative;
-}
-
-.position-absolute {
-  position: absolute;
-}
-
-.no-padding.no-padding {
-  padding: 0;
-}
-
-.image-overlay {
-  backdrop-filter: blur(2px);
-  filter: blur(50px);
-}
-
 @each $name, $shadow in $box-shadow {
   .shadow--#{"" + $name} {
     box-shadow: $shadow;
@@ -100,20 +70,4 @@ p:empty {
 
 .unpublished-content{
   background-color:rgb(255, 65, 54, 0.3);
-}
-
-.disabled {
-  cursor: default;
-  pointer-events: none;
-  opacity: 0.5;
-}
-
-.truncate {
-  white-space: nowrap;         /* Prevent the text from wrapping to the next line */
-  overflow: hidden;            /* Hide the overflowing text */
-  text-overflow: ellipsis;     /* Show an ellipsis ('...') when text overflows */
-}
-
-.text-transform-uppercase {
-  text-transform: uppercase;
 }
