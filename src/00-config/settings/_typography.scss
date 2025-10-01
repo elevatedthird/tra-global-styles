@@ -6,6 +6,26 @@
 /*------------------------------------*\
   Tag Default Sizes
 \*------------------------------------*/
+$display-xl-font-size:              192px;
+$display-xl-line-height:            110%;
+$display-xl-smallscreen:            96px;
+
+$display-lg-font-size:              144px;
+$display-lg-line-height:            110%;
+$display-lg-smallscreen:            72px;
+
+$display-md-font-size:              96px;
+$display-md-line-height:            110%;
+$display-md-smallscreen:            64px;
+
+$display-sm-font-size:              64px;
+$display-sm-line-height:            110%;
+$display-sm-smallscreen:            48px;
+
+$display-xs-font-size:              40px;
+$display-xs-line-height:            110%;
+$display-xs-smallscreen:            32px;
+
 $heading-xl-font-size:              60px;
 $heading-xl-line-height:            110%;
 $heading-xl-smallscreen:            40px;
@@ -76,6 +96,26 @@ $h4-font-size-smallscreen:          $heading-xs-smallscreen !default;
 
 $header-styles: (
   xsmall: (
+    'display-xl': (
+      'font-size': 96,
+      'line-height': 105.6,
+    ),
+    'display-l': (
+      'font-size': 72,
+      'line-height': 79.2,
+    ),
+    'display-m': (
+      'font-size': 64,
+      'line-height': 70.4,
+    ),
+    'display-s': (
+      'font-size': 48,
+      'line-height': 52.8,
+    ),
+    'display-xs': (
+      'font-size': 32,
+      'line-height': 35.2,
+    ),
     'h1': (
       'font-size': 36,
       'line-height': 39.6,
@@ -149,6 +189,26 @@ $header-styles: (
     ),
   ),
   large: (
+    'display-xl': (
+      'font-size': 192,
+      'line-height': 211.2,
+    ),
+    'display-l': (
+      'font-size': 144,
+      'line-height': 158.4,
+    ),
+    'display-m': (
+      'font-size': 96,
+      'line-height': 105.6,
+    ),
+    'display-s': (
+      'font-size': 64,
+      'line-height': 70.4,
+    ),
+    'display-xs': (
+      'font-size': 40,
+      'line-height': 44,
+    ),
     'h1': (
       'font-size': 48,
       'line-height': 52.8,
