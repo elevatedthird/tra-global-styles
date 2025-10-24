@@ -115,4 +115,8 @@
     .mh-#{25 * $i} { min-height: #{25 * $i}px; }
     .mw-#{25 * $i} { min-width: #{25 * $i}px; }
   }
+
+  .mh-280 { 
+    min-height: 280px;
+  }  
 }
