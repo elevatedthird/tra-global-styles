@@ -6,6 +6,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "foundation-sites": "^6.9.0"
+    "foundation-sites": "^6.9.0",
+    "@glidejs/glide": "^3.4.1"
   }
 }
