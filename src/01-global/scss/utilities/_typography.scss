@@ -43,3 +43,16 @@
     @include text-color-profile-targets($key);
   }
 }
+
+.reset-list-styles {
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+
+    li {
+      margin: 0;
+      padding: 0;
+    }
+  }
+}
