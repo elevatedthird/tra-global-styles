@@ -129,6 +129,13 @@
     }
   }
 
+  .tab-items {
+    @include breakpoint(medium) {
+      padding: 0 $spacing-8 $spacing-6 $spacing-8;
+    }
+  }
+
+
   .tab-dropdown-label {
     font-weight: $font-weight-bold;
     margin-top: $spacing-8;
