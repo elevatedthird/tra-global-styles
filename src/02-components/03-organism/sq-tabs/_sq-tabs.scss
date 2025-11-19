@@ -1,4 +1,5 @@
 .organism--sq-tabs {
+  width: 100%;
   .organism--tabs-description {
     margin-top: $spacing-6;
   }
@@ -12,6 +13,7 @@
     .move-list {
       display: none;
     }
+
     &.has-scroll {
       .tabs__tab-list {
         margin-left: 1.5rem;
@@ -46,17 +48,12 @@
     }
   }
 
-  .tab-items {
-    @include breakpoint(medium) {
-      padding: 0 $spacing-8 $spacing-6 $spacing-8;
-    }
-  }
-
   .tabs__tab-list {
     display: flex;
     list-style: none;
     overflow-x: scroll;
     overflow-y: hidden;
+    margin: 0;
     @include breakpoint(medium) {
       overflow-x: hidden;
       width: 100%;
