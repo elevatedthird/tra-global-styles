@@ -15,7 +15,7 @@
     }
   }
 
-  .organism--hero--grid {
+  .organism--sq-hero--grid {
     //height: 800px;
     .cell.media {
       height: 400px;
@@ -134,7 +134,7 @@
     .height_560 {
       height: 560px;
 
-      .organism--hero--grid--media img {
+      .organism--sq-hero--grid--media img {
         height: 560px;
       }
     }
@@ -142,7 +142,7 @@
     .height_480 {
       height: 480px;
 
-      .organism--hero--grid--media img {
+      .organism--sq-hero--grid--media img {
         height: 480px;
       }
 
@@ -151,11 +151,11 @@
     .height_280 {
       height: 280px;
 
-      .organism--hero--grid--media img {
+      .organism--sq-hero--grid--media img {
         height: 280px;
       }
 
-      .organism--hero--content-wrapper {
+      .organism--sq-hero--content-wrapper {
         .heading {
           font-size: $heading-lg-font-size;
           line-height: $heading-lg-line-height;
