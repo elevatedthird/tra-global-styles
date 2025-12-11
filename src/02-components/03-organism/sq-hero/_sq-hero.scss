@@ -101,6 +101,7 @@
       justify-content: space-between;
       grid-template-columns: auto;
       column-gap: 1rem;
+      row-gap: 1rem;
 
       @include breakpoint(large) {
         margin-top: $spacing-6;
