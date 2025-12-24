@@ -107,6 +107,9 @@
     @include breakpoint(small) {
       .glide__arrows {
         position: static;
+        width: auto;
+        left: unset;
+        margin: 0;
         display: inline-flex;
         top: calc(426px - 110px - 19px);
       }
