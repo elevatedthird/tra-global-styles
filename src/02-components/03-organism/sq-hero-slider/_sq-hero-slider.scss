@@ -84,7 +84,8 @@
     }
 
     // Small UI
-    @include breakpoint(xsmall only) {
+    @include breakpoint(440px down) {
+    //@include breakpoint(xsmall only) {
       .glide__arrows {
         position: absolute;
         right: 0;
@@ -116,7 +117,8 @@
     }
 
     // Small UI
-    @include breakpoint(small) {
+    @include breakpoint(441px) {
+    //@include breakpoint(small) {
       position: absolute;
 
       .glide__arrows {
@@ -151,7 +153,8 @@
     }
 
     // Small UI
-    @include breakpoint(small) {
+    @include breakpoint(441px) {
+    //@include breakpoint(small) {
       display: flex;
     }
 
