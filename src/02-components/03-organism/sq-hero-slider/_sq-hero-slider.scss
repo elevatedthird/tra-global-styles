@@ -86,7 +86,7 @@
     // Small UI
     @include breakpoint(440px down) {
     //@include breakpoint(xsmall only) {
-      .glide__arrows {
+      .glide__arrows.glide__arrows {
         position: absolute;
         right: 0;
         display: inline-flex;
