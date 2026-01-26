@@ -67,9 +67,9 @@
     justify-content: center;
     margin-top: 337px;
     padding-top: 7rem;
-    //padding-bottom: 4rem;
     // Small UI
-    padding-bottom: 2rem;
+    padding-bottom: 4rem;
+    //padding-bottom: 2rem;
     height: calc(100% - 337px) !important;
 
     .heading {
@@ -115,7 +115,8 @@
     }
 
     // Small UI
-    @include breakpoint(xsmall only) {
+    @include breakpoint(441px down) {
+    //@include breakpoint(xsmall only) {
       .links {
         width: 100%;
       }
